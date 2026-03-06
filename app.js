@@ -104,6 +104,18 @@ crudModalSave.addEventListener("click", async () => {
   }
 });
 
+function updateHeaderDateTime() {
+  const el = document.getElementById("headerDateTime");
+  if (!el) return;
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true });
+  const dateStr = now.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" });
+  el.textContent = `${timeStr} — ${dateStr}`;
+}
+
+setInterval(updateHeaderDateTime, 60000);
+updateHeaderDateTime();
+
 function patientsTable(patients) {
   return `
     <div class="table-responsive">
@@ -698,6 +710,30 @@ function appointmentsView() {
   wireAppointmentTableActions();
 }
 
+function messagesView() {
+  view.innerHTML = `
+    <div class="page-title">Messages</div>
+    <div class="card card-soft">
+      <div class="card-body text-center py-5">
+        <i class="bi bi-chat-dots text-muted" style="font-size: 3rem;"></i>
+        <p class="text-muted mt-3 mb-0">Secure messaging with patients and staff will appear here.</p>
+      </div>
+    </div>
+  `;
+}
+
+function settingsView() {
+  view.innerHTML = `
+    <div class="page-title">Settings</div>
+    <div class="card card-soft">
+      <div class="card-body text-center py-5">
+        <i class="bi bi-gear text-muted" style="font-size: 3rem;"></i>
+        <p class="text-muted mt-3 mb-0">Clinic preferences and configuration will appear here.</p>
+      </div>
+    </div>
+  `;
+}
+
 function reportsView() {
   const byPayment = state.appointments.reduce((acc, a) => {
     const k = (a.payment_mode || "Unspecified").trim() || "Unspecified";
@@ -752,6 +788,8 @@ async function route() {
   if (routeName === "doctors") return doctorsView();
   if (routeName === "appointments") return appointmentsView();
   if (routeName === "reports") return reportsView();
+  if (routeName === "messages") return messagesView();
+  if (routeName === "settings") return settingsView();
 
   window.location.hash = "#/dashboard";
 }
