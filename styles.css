@@ -1,8 +1,13 @@
 :root {
-  --clinic-teal: #17a2a5;
-  --sidebar-bg: #2f3b45;
-  --sidebar-hover: #3a4955;
-  --content-bg: #eef2f5;
+  /* Palette from "Medical website color palette" */
+  --clinic-navy: #122056; /* Pantone 2766 C */
+  --clinic-blue: #5865dc; /* Pantone 2726 C */
+  --clinic-page: #eef0fd;
+  --clinic-panel: #fafafd;
+
+  --sidebar-bg: var(--clinic-navy);
+  --sidebar-hover: rgba(88, 101, 220, 0.22);
+  --content-bg: var(--clinic-page);
 }
 
 html,
@@ -22,7 +27,7 @@ body {
 
 .topbar {
   height: 52px;
-  background: var(--clinic-teal);
+  background: var(--clinic-blue);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,7 +70,7 @@ body {
 }
 
 .sidebar .nav-link.active {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(88, 101, 220, 0.36);
   color: #fff;
 }
 
@@ -75,8 +80,66 @@ body {
 }
 
 .card-soft {
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  background: #fff;
+  border: 1px solid rgba(18, 32, 86, 0.08);
+  box-shadow: 0 1px 0 rgba(18, 32, 86, 0.03);
+}
+
+.modal-content {
+  background: var(--clinic-panel);
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: rgba(88, 101, 220, 0.6);
+  box-shadow: 0 0 0 0.2rem rgba(88, 101, 220, 0.18);
+}
+
+.table thead th {
+  color: var(--clinic-navy);
+  background: rgba(88, 101, 220, 0.08);
+  border-bottom-color: rgba(18, 32, 86, 0.12);
+}
+
+.table tbody tr:hover {
+  background: rgba(88, 101, 220, 0.05);
+}
+
+.link-primary,
+a {
+  color: var(--clinic-blue);
+}
+
+.link-primary:hover,
+a:hover {
+  color: #4b57cf;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--clinic-blue);
+  --bs-btn-border-color: var(--clinic-blue);
+  --bs-btn-hover-bg: #4b57cf;
+  --bs-btn-hover-border-color: #4b57cf;
+  --bs-btn-active-bg: #424dc1;
+  --bs-btn-active-border-color: #424dc1;
+}
+
+.btn-success {
+  --bs-btn-bg: var(--clinic-blue);
+  --bs-btn-border-color: var(--clinic-blue);
+  --bs-btn-hover-bg: #4b57cf;
+  --bs-btn-hover-border-color: #4b57cf;
+  --bs-btn-active-bg: #424dc1;
+  --bs-btn-active-border-color: #424dc1;
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: var(--clinic-navy);
+  --bs-btn-border-color: rgba(18, 32, 86, 0.35);
+  --bs-btn-hover-bg: rgba(88, 101, 220, 0.12);
+  --bs-btn-hover-border-color: rgba(88, 101, 220, 0.35);
+  --bs-btn-hover-color: var(--clinic-navy);
 }
 
 .page-title {
