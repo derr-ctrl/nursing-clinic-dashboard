@@ -459,8 +459,56 @@ function dashboardView() {
   ];
 
   view.innerHTML = `
-    <div class="d-flex align-items-center justify-content-between mb-3">
-      <div class="page-title">Dashboard</div>
+    <div class="hero">
+      <div>
+        <div class="hero-pill">
+          <i class="bi bi-heart-pulse-fill"></i>
+          Family-centered outpatient care
+        </div>
+        <h1 class="hero-title">Welcome to Northbridge Medical Clinic</h1>
+        <p class="hero-subtitle mb-2">
+          Book same-day appointments, manage patient records, and keep your clinic running smoothly
+          with a clear overview of your schedule.
+        </p>
+        <div class="hero-badges">
+          <span class="hero-badge"><i class="bi bi-clock-history me-1"></i> Mon–Sat, 8:00 AM – 7:00 PM</span>
+          <span class="hero-badge"><i class="bi bi-telephone-outbound me-1"></i> +63 (02) 555 0123</span>
+          <span class="hero-badge"><i class="bi bi-geo-alt me-1"></i> 2F Northbridge Center, Quezon City</span>
+        </div>
+      </div>
+      <div class="hero-aside">
+        <div class="hero-aside-card">
+          <div class="hero-aside-card-icon">
+            <i class="bi bi-calendar2-check"></i>
+          </div>
+          <div>
+            <div class="hero-aside-card-title">Today&apos;s overview</div>
+            <div class="hero-aside-card-text">
+              ${escapeHtml(String(state.appointments.length))} appointments scheduled across
+              ${escapeHtml(String(state.doctors.length))} active doctors.
+            </div>
+          </div>
+        </div>
+        <div class="hero-aside-card">
+          <div class="hero-aside-card-icon">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <div>
+            <div class="hero-aside-card-title">Emergency instructions</div>
+            <div class="hero-aside-card-text">
+              For emergency cases, advise patients to proceed directly to the nearest hospital ER
+              and record follow-up notes in the patient file.
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-sm align-self-start" id="dashNewApptBtn">
+          <i class="bi bi-plus-lg me-1"></i>New appointment
+        </button>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <div class="page-title mb-0">Clinic snapshot</div>
       <button class="btn btn-sm btn-outline-secondary" id="resetBtn"><i class="bi bi-arrow-counterclockwise me-1"></i>Reset demo data</button>
     </div>
 
@@ -502,6 +550,13 @@ function dashboardView() {
     dashboardView();
     showAlert("success", "Demo data restored.");
   });
+
+  const dashNewApptBtn = document.getElementById("dashNewApptBtn");
+  if (dashNewApptBtn) {
+    dashNewApptBtn.addEventListener("click", () => {
+      window.location.hash = "#/appointments";
+    });
+  }
 }
 
 function patientsView() {

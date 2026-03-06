@@ -17,6 +17,8 @@ body {
 
 body {
   background: var(--content-bg);
+  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #121826;
 }
 
 .app-shell {
@@ -38,6 +40,11 @@ body {
   color: #fff;
   font-weight: 600;
   letter-spacing: 0.2px;
+}
+
+.topbar-phone {
+  color: #ffffff;
+  font-size: 0.85rem;
 }
 
 .text-white-75 {
@@ -154,6 +161,102 @@ a:hover {
   gap: 10px;
   padding-top: 12px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.hero {
+  background: radial-gradient(circle at top left, rgba(88, 101, 220, 0.16), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(18, 32, 86, 0.12), transparent 50%);
+  border-radius: 18px;
+  padding: 22px 22px 18px;
+  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 18px;
+}
+
+.hero-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--clinic-navy);
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  color: rgba(18, 32, 86, 0.75);
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--clinic-blue);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.hero-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(88, 101, 220, 0.25);
+  font-size: 0.78rem;
+  color: var(--clinic-navy);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.hero-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.hero-aside-card {
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(18, 32, 86, 0.06);
+  display: flex;
+  gap: 10px;
+}
+
+.hero-aside-card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgba(88, 101, 220, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clinic-blue);
+}
+
+.hero-aside-card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.hero-aside-card-text {
+  font-size: 0.78rem;
+  color: rgba(18, 32, 86, 0.75);
+}
+
+@media (max-width: 991.98px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 767.98px) {
